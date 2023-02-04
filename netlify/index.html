@@ -1,0 +1,178 @@
+<html lang="en">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="shortcut icon" href="https://open.gridea.dev/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://open.gridea.dev/media/tailwind.css">
+<link rel="stylesheet" href="https://open.gridea.dev/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Gridea - Atom Feed" href="https://open.gridea.dev/atom.xml">
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113307620-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-113307620-2');
+  </script>
+    
+
+  <title>Gridea 客户端部署站点到 Netlify 教程 | Gridea</title>
+  <meta name="description" content="
+登录到 Netlify 网站。如果你还没有帐户，可以使用第三方账号登录或注册一个。
+
+
+
+下载示例压缩文件，然后拖放到你的站点的框中。（不需要解压）
+
+
+
+文件上传后，你将看到 Netlify 已经自动为你创建好了一个网站，你可以点击下图..." />
+<body>
+  <div class="antialiased flex flex-col min-h-screen md:bg-gray-100" id="app">
+    <header class="border-b border-gray-200 bg-white">
+  <div class="max-w-6xl mx-auto sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
+    <div class="flex items-center justify-between px-4 py-3 sm:p-0">
+      <a href="/" class="flex items-center">
+        <img class="h-8 mr-2" src="/media/gridea.png" alt="Gridea" style="transform: scale(1.2);"> <span class="font-medium text-xl">Gridea</span>
+      </a>
+      <div class="sm:hidden">
+        <button @click="isOpen = !isOpen" type="button" class="block text-gray-500 hover:text-gray-500 focus:text-gray-500 focus:outline-none">
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path v-if="isOpen" fill-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
+            <path v-if="!isOpen" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav :class="isOpen ? 'block' : 'hidden'" class="px-2 pt-2 pb-4 sm:flex sm:p-0">
+      
+        <a href="/" class="block px-2 py-1 text-gray-500 font-semibold rounded hover:bg-gray-100 ">
+          首页
+        </a>  
+      
+        <a href="/docs" class="block px-2 py-1 text-gray-500 font-semibold rounded hover:bg-gray-100 mt-1 sm:mt-0 sm:ml-2">
+          文档
+        </a>  
+      
+        <a href="/themes" class="block px-2 py-1 text-gray-500 font-semibold rounded hover:bg-gray-100 mt-1 sm:mt-0 sm:ml-2">
+          主题
+        </a>  
+      
+        <a href="/blog" class="block px-2 py-1 text-gray-500 font-semibold rounded hover:bg-gray-100 mt-1 sm:mt-0 sm:ml-2">
+          博客
+        </a>  
+      
+        <a href="https://web.gridea.dev" class="block px-2 py-1 text-gray-500 font-semibold rounded hover:bg-gray-100 mt-1 sm:mt-0 sm:ml-2">
+          Gridea Web🆕
+        </a>  
+      
+    </nav>
+  </div>
+</header>
+
+    <div class="max-w-6xl w-full mx-auto px-4 py-8 my-8 flex-1">
+
+      <h1 class="text-3xl text-center">Gridea 客户端部署站点到 Netlify 教程</h1>
+      
+      
+
+      
+      
+      <div class="flex relative bg-white md:mx-32 mt-8 md:mt-16 md:rounded md:shadow pb-24">
+        <div v-pre class="markdown mt-10 flex-1 w-full px-0 md:px-12">
+          <ol>
+<li>登录到 <a href="https://www.netlify.com/">Netlify 网站</a>。如果你还没有帐户，可以使用第三方账号登录或注册一个。</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://open.gridea.dev/post-images/1634904481970.png" alt="" loading="lazy"></figure>
+<ol start="2">
+<li>下载<a href="https://gridea.dev/gridea-netlify-site.zip">示例压缩文件</a>，然后拖放到你的站点的框中。（不需要解压）</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://open.gridea.dev/post-images/1634904508015.png" alt="" loading="lazy"></figure>
+<ol start="3">
+<li>文件上传后，你将看到 Netlify 已经自动为你创建好了一个网站，你可以点击下图中的绿色链接进行测试。点击 “Site settings” 按钮，跳转到站点详情页，这里有我们需要的两个信息：<strong>网站域名</strong> 和 <strong>网站 ID(Site ID)</strong>。将这两个信息复制下来保存到你的本地。稍后将在 Gridea 中使用。</li>
+</ol>
+<figure data-type="image" tabindex="3"><img src="https://open.gridea.dev/post-images/1634904563578.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://open.gridea.dev/post-images/1634905889835.png" alt="" loading="lazy"></figure>
+<ol start="5">
+<li>点击右上角的头像，然后点击“User settings”，找到“Applications”，然后找到“Personal access tokens”。（按以上步骤操作，或直接点击<a href="https://app.netlify.com/user/applications#personal-access-tokens">此链接</a>），最后点击“New access token” 按钮</li>
+</ol>
+<figure data-type="image" tabindex="5"><img src="https://open.gridea.dev/post-images/1634904630820.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://open.gridea.dev/post-images/1634906042374.png" alt="" loading="lazy"></figure>
+<ol start="6">
+<li>输入 Token 的描述，然后点击“Generate token” 按钮。然后将得到的 Token 进行复制。（注意！你只能看到此 Token 一次，所以请立即复制并备份到你的本地，稍后将在 Gridea 中使用）</li>
+</ol>
+<figure data-type="image" tabindex="7"><img src="https://open.gridea.dev/post-images/1634904663154.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://open.gridea.dev/post-images/1634904669314.png" alt="" loading="lazy"></figure>
+<ol start="7">
+<li>回到 Gridea 客户端，然后在“远程” - “基础设置” 中将你的“域名”，“Site ID”, “Access Token” 填写。然后点击“检测远程连接”。当你看到成功的提示时，说明已经配置成功了，至此，你便可以撰写文章，并点击“同步”按钮来更新网站了。</li>
+</ol>
+<figure data-type="image" tabindex="9"><img src="https://open.gridea.dev/post-images/1634904688484.png" alt="" loading="lazy"></figure>
+<ol start="8">
+<li>大功告成。</li>
+</ol>
+<figure data-type="image" tabindex="10"><img src="https://open.gridea.dev/post-images/1634904730888.png" alt="" loading="lazy"></figure>
+<h2 id="可选进阶设置">可选进阶设置</h2>
+<p>你可以在 Netlify 的 “Site settings” 中进行自定义域名的设置（前提是你已经拥有一个域名）或者更改站点名称“Edit site name” 来自定义一个更易读的地址。请注意！更改域名后，需要去 Gridea 客户端中相应的变更域名配置。</p>
+<figure data-type="image" tabindex="11"><img src="https://open.gridea.dev/post-images/1634904709118.png" alt="" loading="lazy"></figure>
+
+        </div>
+        <!-- <div class="hidden md:block w-48 sticky top-0 pt-10 post-toc self-start">
+          <div class="uppercase py-4 font-normal text-gray-400 text-sm">On this page</div>
+          <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%8F%AF%E9%80%89%E8%BF%9B%E9%98%B6%E8%AE%BE%E7%BD%AE">可选进阶设置</a></li>
+</ul>
+</li>
+</ul>
+
+        </div> -->
+      </div>
+
+      
+    </div>
+
+    <div class="border-t border-gray-200 bg-white">
+  <div class="max-w-6xl flex md:justify-between flex-col md:flex-row items-center mx-auto py-24">
+    <form
+      class="flex items-center mb-0"
+      action="https://tinyletter.com/gridea"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://tinyletter.com/gridea', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+      <input class="border border-gray-200 w-full text-gray-700 h-10 py-2 px-2 focus:outline-none" placeholder="你的邮箱" type="text" name="email" id="tlemail" />
+      <input type="hidden" value="1" name="embed"/>
+      <button class="text-sm flex items-center flex-shrink-0 py-3 h-10 px-4 bg-gray-800 hover:bg-gray-900 text-white" type="submit">
+        <i class="ri-mail-line mr-2"></i>
+        订阅更新
+      </button>
+    </form>
+    <div class="text-gray-400 font-light my-8 md:my-0">
+      Powered by <a class="text-gray-800 font-normal" href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> · Made with ❤️ by <a class="text-gray-800 font-normal" href="https://github.com/EryouHao" target="_blank">EryouHao</a>
+    </div>
+    <div class="flex md:self-start justify-center">
+      <a href="https://github.com/getgridea/gridea" target="_blank" class="p-2 border border-gray-200 rounded-full w-10 h-10 text-center mr-3 hover:bg-gray-900 hover:text-white">
+        <i class="ri-github-line"></i>
+      </a>
+      <a href="https://twitter.com/EryouHao" target="_blank" class="p-2 border border-gray-200 rounded-full w-10 h-10 text-center mr-3 hover:bg-gray-900 hover:text-white">
+        <i class="ri-twitter-line"></i>
+      </a>
+      <a href="https://t.me/joinchat/AAAAAEj82_lma0Y1wmyqUQ" target="_blank" class="p-2 border border-gray-200 rounded-full w-10 h-10 text-center hover:bg-gray-900 hover:text-white">
+        <i class="ri-telegram-line"></i>
+      </a>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="/media/scripts/main.js"></script>
+  <script src="/media/prism.js"></script>
+  <script>
+    Prism.highlightAll()
+  </script>
+</body>
+</html>
